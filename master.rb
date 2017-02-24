@@ -20,7 +20,7 @@ require "erubis"
 $logger = Logger.new(STDERR)
 $algorithms = [:clc, :contextmap2,
       :crac, :gsnap, :hisat, :hisat2, :mapsplice2, :olego, :rum,
-      :soapsplice, :star, :subread, :tophat2, :novoalign]
+      :soapsplice, :star, :subread, :tophat2, :novoalign, :biokanga]
 
 # Initialize logger
 def setup_logger(loglevel)
@@ -38,7 +38,7 @@ end
 
 def setup_options(args)
   options = {:out_file =>  "overview_table.xls", :loglevel => "error",
-    :algorithm => "all", :transcripts => nil, :junctions_crossed => nil,
+    :algorithm => "biokanga", :transcripts => nil, :junctions_crossed => nil,
     :cig_file => nil, :stats_path => nil, :tool_result_path => nil,
     :aligner_benchmark => nil, :samtools => "samtools", :jobs_path => nil,
     :species => "human", :debug => false, :short => false,
@@ -58,9 +58,9 @@ def setup_options(args)
     opts.separator "e.g. source_of_tree = /project/itmatlab/aligner_benchmark"
     opts.separator ""
     # enumeration
-    opts.on('-a', '--algorithm ENUM', [:all,:clc, :contextmap2,
+    opts.on('-a', '--algorithm ENUM', [:clc, :contextmap2,
       :crac, :gsnap, :hisat, :hisat2, :mapsplice2, :novoalign, :olego, :rum,
-      :star,:soapsplice, :subread, :tophat2],'Choose from below:','all: DEFAULT',
+      :star,:soapsplice, :subread, :tophat2, :biokanga],'Choose from below:','biokanga: DEFAULT',
       'clc','contextmap2','crac','gsnap','hisat', 'hisat2', 'mapsplice2','novoalign',
       'olego','rum','star','soapsplice','subread','tophat2') do |v|
       options[:algorithm] = v
@@ -219,10 +219,10 @@ def submit(cmd, options)
       l = `#{cmd}`
     rescue Exception => e
       $logger.error(e)
-      $logger.error("bsub not found!#{cmd}")
+      $logger.error("unable to execute as a subprocess --- #{cmd}")
       return 1
     end
-    num = l.split(/\W/)[2].to_i
+    num = $?.to_i   # returning the exit status 
   end
   num
 end
@@ -635,7 +635,7 @@ def run_hisat2(options, source_of_tree, dataset)
     o.close()
     Dir.chdir "#{options[:jobs_path]}"
     $logger.debug(Dir.pwd)
-    cmd = "bsub < #{shell_file}"
+    cmd = "bash #{shell_file}"
     jobnumber = submit(cmd,options)
     options[:jobs] << Job.new(jobnumber, cmd, "PEND",Dir.pwd)
   end
@@ -1096,6 +1096,87 @@ def run_star(options, source_of_tree, dataset)
   $logger.debug(options[:jobs])
 end
 
+def run_biokanga(options, source_of_tree, dataset)
+  $logger.debug("Now starting run_biokanga ...")
+  cmd = "find #{source_of_tree}/tool_results/biokanga/alignment -name \"*#{options[:species]}*#{dataset}\""
+  $logger.debug(cmd)
+  l = `#{cmd}`
+  l = l.split("\n")
+  l = l.delete_if {|e| e =~ /denovo$/}
+  if l.length != 1
+    $logger.error "biokanga: _A Trouble finding #{dataset}: #{l}"
+    return
+  end
+  $logger.debug("found the dataset #{dataset}\n")
+  l = l[0]
+  erubis = Erubis::Eruby.new(File.read("#{options[:aligner_benchmark]}/templates/biokanga.sh"))
+  $logger.debug("After Eruby.new then Dir.glob will be on #{l}\n")
+  Dir.glob("#{l}/*").each do |p|
+    $logger.debug("After Eruby.new then checking on #{p}\n")
+    if File.directory? p
+      cmd = "find #{p} -name \"*Aligned.out.sam\""
+      $logger.debug(cmd)
+      l = `#{cmd}`
+      l = l.split("\n")
+      raise "_B Trouble finding #{dataset}: #{l}" if l.length > 1
+      next if l.length < 1
+      l = l[0]
+      next unless File.exist?("#{l}")
+      $logger.debug(p)
+      options[:stats_path] = "#{options[:out_directory]}/biokanga/#{p.split("/")[-1]}".gsub(/[()]/,"")
+      begin
+        Dir.mkdir(options[:stats_path])
+      rescue SystemCallError
+        if Dir.exist?(options[:stats_path])
+          logger.warn("Directory #{options[:stats_path]} exists!")
+        else
+          logger.error("Can't create directory #{options[:stats_path]}!")
+          raise("Trouble creating directory, log for details.")
+        end
+      end
+      options[:tool_result_path] = p
+      shell_file = "#{options[:jobs_path]}/biokanga_statistics_#{options[:species]}_#{dataset}_#{p.split("/")[-1]}.sh".gsub(/[()]/,"")
+      $logger.debug("shell file is #{shell_file}\n")
+
+    else
+      $logger.debug("in the else clause\n")
+      next unless p =~ /Aligned\.out\.sam$/
+      $logger.debug(p)
+      options[:stats_path] = "#{options[:out_directory]}/biokanga/".gsub(/[()]/,"")
+      begin
+        Dir.mkdir(options[:stats_path])
+      rescue SystemCallError
+        if Dir.exist?(options[:stats_path])
+          logger.warn("Directory #{options[:stats_path]} exists!")
+        else
+          logger.error("Can't create directory #{options[:stats_path]}!")
+          raise("Trouble creating directory, log for details.")
+        end
+      end
+      options[:tool_result_path] = p.gsub(/\/[\.\w]*Aligned\.out\.sam$/,"")
+      shell_file = "#{options[:jobs_path]}/biokanga_statistics_#{options[:species]}_#{dataset}_default.sh"
+    end
+  
+
+    $logger.debug("checking if results exist along the #{options[:stats_path]}\n")
+
+    next if check_if_results_exist(options[:stats_path])
+    clean_files(options[:stats_path])
+
+    $logger.debug("opening shell_file #{shell_file}")
+    o = File.open(shell_file,"w")
+    o.puts(erubis.evaluate(options))
+    o.close()
+    $logger.debug("changing directory to #{options[:jobs_path]}")
+    Dir.chdir "#{options[:jobs_path]}"
+    $logger.debug(Dir.pwd)
+    cmd = "bash #{shell_file}"
+    jobnumber = submit(cmd,options)
+    options[:jobs] << Job.new(jobnumber, cmd, "PEND",Dir.pwd)
+  end
+  $logger.debug(options[:jobs])
+end
+
 def run_tophat2(options, source_of_tree, dataset)
   cmd = "find #{source_of_tree}/tool_results/tophat2/alignment -name \"*#{options[:species]}*#{dataset}\""
   $logger.debug(cmd)
@@ -1134,9 +1215,9 @@ def run_tophat2(options, source_of_tree, dataset)
     o.close()
     Dir.chdir "#{options[:jobs_path]}"
     $logger.debug(Dir.pwd)
-    cmd = "bsub < #{shell_file}"
+    cmd = "bash #{shell_file}"
     jobnumber = submit(cmd,options)
-    options[:jobs] << Job.new(jobnumber, cmd, "PEND",Dir.pwd)
+    options[:jobs] << Job.new(jobnumber, cmd, "DONE",Dir.pwd)
   end
   $logger.debug(options[:jobs])
 end
@@ -1169,11 +1250,7 @@ def run(argv)
   $logger.debug(argv)
 
 
-  if options[:algorithm] == "all"
-    algorithms = $algorithms
-  else
-    algorithms = [options[:algorithm]]
-  end
+  algorithms = [options[:algorithm]]
 
   if options[:short]
     get_truth_files(options, source_of_tree, dataset, "short")
@@ -1230,10 +1307,12 @@ def run(argv)
       run_star(options, source_of_tree, run_name)
     when :tophat2
       run_tophat2(options, source_of_tree, run_name)
+    when :biokanga
+      run_biokanga(options, source_of_tree, run_name)
     end
   end
 
-  monitor_jobs(options[:jobs])
+#  monitor_jobs(options[:jobs])
   #puts options[:cut_off]
   $logger.info("All done!")
 end
