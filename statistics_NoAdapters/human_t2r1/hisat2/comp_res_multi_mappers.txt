@@ -1,0 +1,46 @@
+-------------------------------------- Multi-Mappers!
+total_number_of_reads:	20000000
+accuracy over all reads:	92.75%
+accuracy over uniquely aligned reads:	99.5%
+% reads aligned incorrectly:	0.45%
+% reads aligned ambiguously:	0(2.13)%
+% reads unaligned:	6.8%
+% reads aligned:	93.2%
+% of reads with true introns:	13.4757%
+--------------------------------------
+total_number_of_bases_of_reads:	2000000000
+accuracy over all bases:	92.58%
+accuracy over uniquely aligned bases:	99.42%
+% bases aligned incorrectly:	0.53%
+% bases aligned ambiguously:	0(2.13)%
+% bases unaligned:	6.9%
+% bases aligned:	93.1%
+% of bases in true insertions:	0.0711%
+% of bases in true deletions:	0.068%
+insertions FD rate:	2.0%
+insertions FN rate:	60.0%
+deletions FD rate:	2.1299%
+deletions FN rate:	58.78%
+skipping FD rate:	2.18%
+skipping FN rate:	20.0099%
+--------------------------------------
+junctions FD rate:	1.9499%
+junctions FN rate:	17.4%
+Junctions Sides (none|left|right|both):	42366|3515|2186|2422712
+Junctions Sides (none|left|right|both)% of all called:	1.71%|0.1399%|0.08%|98.05%
+-------------------------------------- as pair
+total_number_of_reads:	20000000
+accuracy over all reads pair:	92.92%
+accuracy over uniquely aligned reads:	99.52%
+% reads aligned incorrectly:	0.43%
+% reads aligned ambiguously:	0(2.13)%
+% reads unaligned:	6.63%
+% reads aligned:	93.37%
+-------------------------------------- as pair
+total_number_of_bases_of_reads:	2000000000
+accuracy over all bases:	92.75%
+accuracy over uniquely aligned bases:	99.45%
+% bases aligned incorrectly:	0.51%
+% bases aligned ambiguously:	0(2.13)%
+% bases unaligned:	6.73%
+% bases aligned:	93.27%
