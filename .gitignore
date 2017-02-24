@@ -50,3 +50,5 @@ files_to_plot/*
 *sam
 notes*
 
+*.Rproj
+.Rproj.user
