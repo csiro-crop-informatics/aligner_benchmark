@@ -2,6 +2,7 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(purrr)
+library(ggplot2)
 
 #output files are in same (annoying) format
 #build a parser for one file, loop over dirs
@@ -64,7 +65,7 @@ parse_file <- function(filename, multi = FALSE, debug = FALSE) {
            paired = "single") %>% 
     select(-var_new)
   
-  if(multi) new_vars <- c(new_vars_single, new_vars_multi)
+  if(multi) new_vars <- c(new_vars_single, new_vars_multi) else new_vars <- new_vars_single
   paired <- rep("single", 25)
   if(multi) paired <- c(paired, rep("pairs", 14))
   
@@ -78,21 +79,47 @@ parse_file <- function(filename, multi = FALSE, debug = FALSE) {
   out$file <- filename
   
   out <- out %>% 
-    separate(file, c("query", "target", "tool", "type"), "\\/") %>% 
+    separate(file, c("query", "target", "tool", "type"), "\\/", remove = FALSE) %>% 
     mutate(type = ifelse(grepl("multi", type), "multi", "single")) %>% 
     mutate(perc = ifelse(grepl("%", value), TRUE, FALSE),
            value_dbl = as.numeric(sub("%", "", value)))
 }
 
-test <- parse_file("statistics_AdaptersV3/human_t1r1/biokanga/comp_res.txt")
-temp <- parse_file(files[4])
-
-
 files <- c(list.files("statistics_AdaptersV3", full.names = TRUE, recursive = TRUE),
            list.files("statistics_NoAdapters", full.names = TRUE, recursive = TRUE))
+
+# test <- parse_file("statistics_AdaptersV3/human_t1r1/biokanga/comp_res.txt")
+# temp <- parse_file(files[4])
 
 dat_parsed <- files %>% 
   map(parse_file) %>% 
   bind_rows()
 
 write_csv(dat_parsed, "statistics/alignment_statistics.csv")
+
+ggplot(dat_parsed %>% filter(var == "total_read_accuracy"), aes(tool, value_dbl)) +
+  geom_point(aes(colour = target)) + geom_line(aes(group = paste(type, target))) +
+  facet_grid(paired~query)
+
+#biokanga t2/3 multi pairs are the same, check other stats
+dat_parsed %>% 
+  filter(target != "human_t1r1",
+         tool == "biokanga",
+         !grepl("total", var),
+         type == "multi",
+         paired == "pairs") %>% 
+  arrange(var) %>% 
+  print(n = nrow(.))
+
+dat_parsed %>% 
+  filter(!var %in% c("total_reads", "total_bases")) %>% 
+  group_by(value_dbl) %>% 
+  mutate(value_count = n()) %>% 
+  filter(value_count > 1) %>% 
+  group_by(value_dbl, value_count) %>% 
+  filter(value_count < 5) %>% 
+  summarise(file_combn = paste(file, collapse = ",")) %>% 
+  group_by(file_combn) %>% 
+  count()
+  arrange(value_count,value_dbl, var) %>% 
+  print(n = nrow(.))
