@@ -1,0 +1,9 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 128000 -n $NUM_THREAD_PARAM \
+        -J mapsplice2-index-lastversion_job \
+        -e mapsplice2-index-lastversion_job.%J.err \
+        -o mapsplice2-index-lastversion_job.%J.out \
+        sh mapsplice2-index-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM
+

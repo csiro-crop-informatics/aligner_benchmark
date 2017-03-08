@@ -3,12 +3,12 @@
 cd /project/itmatlab/aligner_benchmark/jobs/hisat2
 
 #generating index for human - only needs to be done once
-./hisat2-index-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
+# ./hisat2-index-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
 
 #generating alignments for human t1r1
-./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
-./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t2r1.sh
-./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t3r1.sh
+time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh >> hisat2.log
+time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t2r1.sh >> hisat2.log
+time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t3r1.sh >> hisat2.log
 
 #now back to the benchmarking root directory and run the ruby scripts for generating stats on the alignments
 cd /project/itmatlab/aligner_benchmark

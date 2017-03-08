@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J star-index-lastversion_job \
+        -e star-index-lastversion_job.%J.err \
+        -o star-index-lastversion_job.%J.out \
+        sh star-index-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM

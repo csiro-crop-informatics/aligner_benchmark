@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J crac-align-1M_job \
+        -e crac-align-1M_job.%J.err \
+        -o crac-align-1M_job.%J.out \
+        sh crac-align-1M.sh $NUM_THREAD_PARAM $DATASET_PARAM

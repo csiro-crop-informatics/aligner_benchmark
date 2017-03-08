@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J rum-align_job \
+        -e rum-align_job.%J.err \
+        -o rum-align_job.%J.out \
+        sh rum-align.sh $NUM_THREAD_PARAM $DATASET_PARAM

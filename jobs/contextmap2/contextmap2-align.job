@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J contextmap2-align_job \
+        -e contextmap2-align_job.%J.err \
+        -o contextmap2-align_job.%J.out \
+        sh contextmap2-align.sh $NUM_THREAD_PARAM $DATASET_PARAM

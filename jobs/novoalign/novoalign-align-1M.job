@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J novoalign-align-1M_job \
+        -e novoalign-align-1M_job.%J.err \
+        -o novoalign-align-1M_job.%J.out \
+        sh novoalign-align-1M.sh $NUM_THREAD_PARAM $DATASET_PARAM

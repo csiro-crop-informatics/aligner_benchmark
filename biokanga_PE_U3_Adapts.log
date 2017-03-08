@@ -1,0 +1,363 @@
+
+[Mar  1 11:47:26.071 2017](biokanga) Subprocess align Version 4.3.4 starting
+[Mar  1 11:47:26.074 2017](biokanga) Processing parameters:
+[Mar  1 11:47:26.075 2017](biokanga) Resources: cores: 48 physmem: 252 (GB) virtual mem: Unlimited (cur) Unlimited (max) locked mem: 65536 (cur) 65536 (max) data seg size: Unlimited (cur) Unlimited (max) threads: 2063093 (cur) 2063093 (max) stack size: 8388608 (cur) Unlimited (max)
+        Processing mode is : 'Standard alignment sensitivity'
+        Raw read or paired reads sampling is : every 1
+        Processing in standard basespace mode
+        alignments are to : Either sense '+' or antisense '-' strands
+        No PCR differential amplification artefact reduction
+        trim 5' ends raw reads by : 0
+        trim 3' ends raw reads by : 0
+        after any end trimming reads must be at least this length : 50bp
+        after any end trimming reads must be no longer than this length : 500bp
+        maximum aligner induced substitutions : 5 subs per 100bp of actual read length
+        minimum Hamming edit distance : 1
+        maximum number, precentage of length if read length > 100, of indeterminate 'N's : 2
+        minimum 5' and 3' flank exacts : 0
+        Raw read quality scores are : 'Ignore'
+        output format is : 'SAM Toolset Format, accepted aligned reads only'
+        If number of target sequences no more than this threshold then write all sequence names to SAM header: 10000
+        input PE1 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.forward.fa'
+        process for: 'Paired end reads with orphan partner processing treating orphans as SE'
+        input PE2 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.reverse.fa'
+        Accept as paired if observed insert size is between 100 and 50000
+        Accept as paired if 5' and 3' are are same strand: 'No'
+        Experimental: Output PE insert length distributions for each transcript or contig : 'No'
+        Experimental: Process PEs for spanning of circularised fragments: 'No'
+        Output paired end sequence length distribution to file: 'none specified'
+        input target sequence(s) suffix array file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+        output results file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/alignment/dataset_human_hg19_RefSeq_t1r1/Aligned.out.sam'
+        Output none-aligned reads to fasta file: 'none specified'
+        Output reads with multiple alignments to fasta file: 'none specified'
+        Output aligner induced substitution distributions to file: 'none specified'
+        Loci base constraints file: 'none specified'
+        Contaminant sequences file: 'none specified'
+        Process multiple alignment reads by: 'slough all reads which match to multiple loci'
+        Offset read start sites when processing site octamer preferencing: -4
+        Allow microInDels of upto this inclusive length: 0
+        Check for chimeric sequences in reads of at least this percentage length: 50
+        Report on individual read sequence chirmeric trimming: no
+        Maximum RNA-seq splice junction separation distance: 0
+        Minimum read coverage at loci before processing for SNP: No SNP processing
+        QValue controlling FDR (Benjamini-Hochberg) SNP prediction : No SNP processing
+        Min percentage non-ref bases at putative SNP loci : No SNP processing
+        Only accept reads which uniquely match a single loci
+        number of threads : 48
+[Mar  1 11:47:26.183 2017](biokanga) Loading suffix array file '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+[Mar  1 11:47:28.192 2017](biokanga) Genome Assembly Name: 'ucsc.hg19' Descr: 'ucsc.hg19' Title: 'ucsc.hg19' Version: 5
+[Mar  1 11:47:28.194 2017](biokanga) Assembly has blocks: 1, max block size: 15478387200
+[Mar  1 11:47:28.196 2017](biokanga) Loading reads from file...
+[Mar  1 11:47:28.198 2017](biokanga) Loading and parsing reads from 5' PE1 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.forward.fa'
+[Mar  1 11:47:28.237 2017](biokanga) Loading and parsing reads from 3' PE2 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.reverse.fa'
+[Mar  1 11:47:31.198 2017](biokanga) Creating/truncating result files..
+[Mar  1 11:47:31.199 2017](biokanga) Creating/truncating result files completed
+[Mar  1 11:47:31.200 2017](biokanga) Aligning in basespace...
+[Mar  1 11:47:31.201 2017](biokanga) Aligning for normal cored matches...
+[Mar  1 11:47:34.588 2017](biokanga) Genome assembly suffix array loaded
+[Mar  1 11:47:34.590 2017](biokanga) Now aligning with minimum core size of 17bp...
+
+[Mar  1 11:47:39.593 2017](biokanga) Progress: 512000 reads aligned from 5050000 loaded
+[Mar  1 11:48:23.156 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.forward.fa
+[Mar  1 11:48:23.161 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t1r1/simulated_reads_HG19t1r1.reverse.fa
+[Mar  1 11:48:23.162 2017](biokanga) 2 raw sequence files were parsed and reads loaded for aligning
+[Mar  1 11:48:39.595 2017](biokanga) Progress: 5439488 reads aligned from 20000000 loaded
+[Mar  1 11:49:39.595 2017](biokanga) Progress: 10457088 reads aligned from 20000000 loaded
+[Mar  1 11:50:39.595 2017](biokanga) Progress: 15499264 reads aligned from 20000000 loaded
+[Mar  1 11:51:36.845 2017](biokanga) Alignment of 20000000 from 20000000 loaded completed
+[Mar  1 11:51:37.850 2017](biokanga) Average length of all reads was: 100 (min: 100, max: 100)
+[Mar  1 11:51:37.851 2017](biokanga) Typical allowed aligner induced substitutions was: 5 (min: 5, max: 5)
+[Mar  1 11:51:37.852 2017](biokanga) Provisionally accepted 19105368 aligned reads (19105368 uniquely, 0 aligning to multiloci) aligning to a total of 19105368 loci
+[Mar  1 11:51:37.854 2017](biokanga) Paired end association and partner alignment processing started..
+[Mar  1 11:51:37.883 2017](biokanga) Generating paired reads index over 10000000 paired reads
+[Mar  1 11:51:41.800 2017](biokanga) Iterating putative paired reads ...
+[Mar  1 11:51:41.803 2017](biokanga) Processed putative 0 pairs, accepted 0
+[Mar  1 12:01:41.573 2017](biokanga) Processed putative 5250210 pairs, accepted 4867798
+[Mar  1 12:10:44.057 2017](biokanga) Processed putative 10000000 pairs, accepted 9271273
+[Mar  1 12:10:44.059 2017](biokanga) From 10000000 putative pairs there were 9271273 accepted (125013 from recovered orphans)
+[Mar  1 12:10:44.060 2017](biokanga) 500367 putative pairs unrecoverable as still orphan partnered
+[Mar  1 12:10:44.062 2017](biokanga) 4529 under length, 40093 over length pairs not accepted
+[Mar  1 12:10:44.063 2017](biokanga) 0 aligned pairs filtered out by chromosome
+[Mar  1 12:10:44.065 2017](biokanga) 228360 putative pairs have neither end uniquely aligned
+[Mar  1 12:10:44.271 2017](biokanga) 673183 reads accepted as SE aligned
+[Mar  1 12:10:49.006 2017](biokanga) Paired end association and partner alignment processing completed..
+[Mar  1 12:10:49.604 2017](biokanga) From 20000000 source reads there are 19215729 accepted alignments, 9607933 on '+' strand, 9607796 on '-' strand
+[Mar  1 12:10:49.606 2017](biokanga) Of the accepted aligned reads, 7850305 were chimeric
+[Mar  1 12:10:49.690 2017](biokanga) A further 571974 multiloci aligned reads could not accepted as hits because they were unresolvable
+[Mar  1 12:10:49.691 2017](biokanga) A further 0 aligned reads were not accepted as hits because of insufficient Hamming edit distance
+[Mar  1 12:10:49.693 2017](biokanga) A further 0 '+' and 0 '-' strand aligned reads not accepted because of flank trimming (0 were trimmed) requirements
+[Mar  1 12:10:49.694 2017](biokanga) Unable to align 212297 source reads of which 29 were not aligned as they contained excessive number of indeterminate 'N' bases
+[Mar  1 12:10:49.696 2017](biokanga) Read nonalignment reason summary:
+[Mar  1 12:10:49.717 2017](biokanga)    0 (NA) Not processed for alignment
+[Mar  1 12:10:49.718 2017](biokanga)    19215729 (AA) Alignment accepted
+[Mar  1 12:10:49.719 2017](biokanga)    29 (EN) Excessive indeterminate (Ns) bases
+[Mar  1 12:10:49.721 2017](biokanga)    212268 (NL) No potential alignment loci
+[Mar  1 12:10:49.722 2017](biokanga)    0 (MH) Mismatch delta (minimum Hamming) criteria not met
+[Mar  1 12:10:49.723 2017](biokanga)    571974 (ML) Aligned to multiloci
+[Mar  1 12:10:49.724 2017](biokanga)    0 (ET) Excessively end trimmed
+[Mar  1 12:10:49.726 2017](biokanga)    0 (OJ) Aligned as orphaned splice junction
+[Mar  1 12:10:49.727 2017](biokanga)    0 (OM) Aligned as orphaned microInDel
+[Mar  1 12:10:49.728 2017](biokanga)    0 (DP) Duplicate PCR
+[Mar  1 12:10:49.730 2017](biokanga)    0 (DS) Duplicate read sequence
+[Mar  1 12:10:49.731 2017](biokanga)    0 (FC) Aligned to filtered target sequence
+[Mar  1 12:10:49.732 2017](biokanga)    0 (PR) Aligned to a priority region
+[Mar  1 12:10:49.733 2017](biokanga)    0 (UI) PE under minimum insert size
+[Mar  1 12:10:49.734 2017](biokanga)    0 (OI) PE over maximum insert size
+[Mar  1 12:10:49.736 2017](biokanga)    0 (UP) PE partner not aligned
+[Mar  1 12:10:49.738 2017](biokanga)    0 (IS) PE partner aligned to inconsistent strand
+[Mar  1 12:10:49.739 2017](biokanga)    0 (IT) PE partner aligned to different target sequence
+[Mar  1 12:10:49.740 2017](biokanga)    0 (NP) PE alignment not accepted
+[Mar  1 12:10:49.743 2017](biokanga)    0 (LC) Alignment violated loci base constraints
+[Mar  1 12:10:49.744 2017](biokanga) Reporting of aligned result set started...
+[Mar  1 12:10:50.313 2017](biokanga) Sorting alignments by ascending chrom.loci
+[Mar  1 12:10:53.229 2017](biokanga) Header written with references to 24 sequences of which 24 have at least 1 alignments
+[Mar  1 12:10:53.231 2017](biokanga) Reported SAM 0 read alignments
+[Mar  1 12:11:41.229 2017](biokanga) Completed reporting SAM 19215729 read alignments
+[Mar  1 12:11:41.238 2017](biokanga) Reporting of aligned result set completed
+[Mar  1 12:11:41.347 2017](biokanga) Exit code: 0 Total processing time:     00:24:15.170 seconds
+
+[Mar  1 12:11:41.360 2017](biokanga) Subprocess align Version 4.3.4 starting
+[Mar  1 12:11:41.362 2017](biokanga) Processing parameters:
+[Mar  1 12:11:41.364 2017](biokanga) Resources: cores: 48 physmem: 252 (GB) virtual mem: Unlimited (cur) Unlimited (max) locked mem: 65536 (cur) 65536 (max) data seg size: Unlimited (cur) Unlimited (max) threads: 2063093 (cur) 2063093 (max) stack size: 8388608 (cur) Unlimited (max)
+        Processing mode is : 'Standard alignment sensitivity'
+        Raw read or paired reads sampling is : every 1
+        Processing in standard basespace mode
+        alignments are to : Either sense '+' or antisense '-' strands
+        No PCR differential amplification artefact reduction
+        trim 5' ends raw reads by : 0
+        trim 3' ends raw reads by : 0
+        after any end trimming reads must be at least this length : 50bp
+        after any end trimming reads must be no longer than this length : 500bp
+        maximum aligner induced substitutions : 5 subs per 100bp of actual read length
+        minimum Hamming edit distance : 1
+        maximum number, precentage of length if read length > 100, of indeterminate 'N's : 2
+        minimum 5' and 3' flank exacts : 0
+        Raw read quality scores are : 'Ignore'
+        output format is : 'SAM Toolset Format, accepted aligned reads only'
+        If number of target sequences no more than this threshold then write all sequence names to SAM header: 10000
+        input PE1 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.forward.fa'
+        process for: 'Paired end reads with orphan partner processing treating orphans as SE'
+        input PE2 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.reverse.fa'
+        Accept as paired if observed insert size is between 100 and 50000
+        Accept as paired if 5' and 3' are are same strand: 'No'
+        Experimental: Output PE insert length distributions for each transcript or contig : 'No'
+        Experimental: Process PEs for spanning of circularised fragments: 'No'
+        Output paired end sequence length distribution to file: 'none specified'
+        input target sequence(s) suffix array file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+        output results file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/alignment/dataset_human_hg19_RefSeq_t2r1/Aligned.out.sam'
+        Output none-aligned reads to fasta file: 'none specified'
+        Output reads with multiple alignments to fasta file: 'none specified'
+        Output aligner induced substitution distributions to file: 'none specified'
+        Loci base constraints file: 'none specified'
+        Contaminant sequences file: 'none specified'
+        Process multiple alignment reads by: 'slough all reads which match to multiple loci'
+        Offset read start sites when processing site octamer preferencing: -4
+        Allow microInDels of upto this inclusive length: 0
+        Check for chimeric sequences in reads of at least this percentage length: 50
+        Report on individual read sequence chirmeric trimming: no
+        Maximum RNA-seq splice junction separation distance: 0
+        Minimum read coverage at loci before processing for SNP: No SNP processing
+        QValue controlling FDR (Benjamini-Hochberg) SNP prediction : No SNP processing
+        Min percentage non-ref bases at putative SNP loci : No SNP processing
+        Only accept reads which uniquely match a single loci
+        number of threads : 48
+[Mar  1 12:11:41.481 2017](biokanga) Loading suffix array file '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+[Mar  1 12:11:43.482 2017](biokanga) Genome Assembly Name: 'ucsc.hg19' Descr: 'ucsc.hg19' Title: 'ucsc.hg19' Version: 5
+[Mar  1 12:11:43.505 2017](biokanga) Assembly has blocks: 1, max block size: 15478387200
+[Mar  1 12:11:43.506 2017](biokanga) Loading reads from file...
+[Mar  1 12:11:43.508 2017](biokanga) Loading and parsing reads from 5' PE1 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.forward.fa'
+[Mar  1 12:11:43.510 2017](biokanga) Loading and parsing reads from 3' PE2 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.reverse.fa'
+[Mar  1 12:11:46.508 2017](biokanga) Creating/truncating result files..
+[Mar  1 12:11:46.511 2017](biokanga) Creating/truncating result files completed
+[Mar  1 12:11:46.512 2017](biokanga) Aligning in basespace...
+[Mar  1 12:11:46.513 2017](biokanga) Aligning for normal cored matches...
+[Mar  1 12:11:48.590 2017](biokanga) Genome assembly suffix array loaded
+[Mar  1 12:11:48.592 2017](biokanga) Now aligning with minimum core size of 17bp...
+
+[Mar  1 12:11:53.595 2017](biokanga) Progress: 479232 reads aligned from 4300000 loaded
+[Mar  1 12:12:39.526 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.forward.fa
+[Mar  1 12:12:39.528 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t2r1/simulated_reads_HG19t2r1.reverse.fa
+[Mar  1 12:12:39.529 2017](biokanga) 2 raw sequence files were parsed and reads loaded for aligning
+[Mar  1 12:12:53.597 2017](biokanga) Progress: 5120000 reads aligned from 20000000 loaded
+[Mar  1 12:13:53.597 2017](biokanga) Progress: 9826304 reads aligned from 20000000 loaded
+[Mar  1 12:14:53.597 2017](biokanga) Progress: 14544896 reads aligned from 20000000 loaded
+[Mar  1 12:15:53.597 2017](biokanga) Progress: 19267584 reads aligned from 20000000 loaded
+[Mar  1 12:16:06.544 2017](biokanga) Alignment of 20000000 from 20000000 loaded completed
+[Mar  1 12:16:07.543 2017](biokanga) Average length of all reads was: 100 (min: 100, max: 100)
+[Mar  1 12:16:07.545 2017](biokanga) Typical allowed aligner induced substitutions was: 5 (min: 5, max: 5)
+[Mar  1 12:16:07.546 2017](biokanga) Provisionally accepted 18797690 aligned reads (18797690 uniquely, 0 aligning to multiloci) aligning to a total of 18797690 loci
+[Mar  1 12:16:07.547 2017](biokanga) Paired end association and partner alignment processing started..
+[Mar  1 12:16:07.548 2017](biokanga) Generating paired reads index over 10000000 paired reads
+[Mar  1 12:16:11.380 2017](biokanga) Iterating putative paired reads ...
+[Mar  1 12:16:11.382 2017](biokanga) Processed putative 0 pairs, accepted 0
+[Mar  1 12:26:11.125 2017](biokanga) Processed putative 3925157 pairs, accepted 3521616
+[Mar  1 12:36:12.650 2017](biokanga) Processed putative 7850314 pairs, accepted 7040806
+[Mar  1 12:41:45.211 2017](biokanga) Processed putative 10000000 pairs, accepted 8968086
+[Mar  1 12:41:45.424 2017](biokanga) From 10000000 putative pairs there were 8968086 accepted (112981 from recovered orphans)
+[Mar  1 12:41:45.426 2017](biokanga) 786255 putative pairs unrecoverable as still orphan partnered
+[Mar  1 12:41:45.427 2017](biokanga) 5625 under length, 35889 over length pairs not accepted
+[Mar  1 12:41:45.428 2017](biokanga) 0 aligned pairs filtered out by chromosome
+[Mar  1 12:41:45.430 2017](biokanga) 245659 putative pairs have neither end uniquely aligned
+[Mar  1 12:41:45.432 2017](biokanga) 961072 reads accepted as SE aligned
+[Mar  1 12:41:50.000 2017](biokanga) Paired end association and partner alignment processing completed..
+[Mar  1 12:41:50.509 2017](biokanga) From 20000000 source reads there are 18897244 accepted alignments, 9440029 on '+' strand, 9457215 on '-' strand
+[Mar  1 12:41:50.510 2017](biokanga) Of the accepted aligned reads, 8767530 were chimeric
+[Mar  1 12:41:50.512 2017](biokanga) A further 578597 multiloci aligned reads could not accepted as hits because they were unresolvable
+[Mar  1 12:41:50.513 2017](biokanga) A further 0 aligned reads were not accepted as hits because of insufficient Hamming edit distance
+[Mar  1 12:41:50.514 2017](biokanga) A further 0 '+' and 0 '-' strand aligned reads not accepted because of flank trimming (0 were trimmed) requirements
+[Mar  1 12:41:50.515 2017](biokanga) Unable to align 524159 source reads of which 19 were not aligned as they contained excessive number of indeterminate 'N' bases
+[Mar  1 12:41:50.516 2017](biokanga) Read nonalignment reason summary:
+[Mar  1 12:41:50.517 2017](biokanga)    0 (NA) Not processed for alignment
+[Mar  1 12:41:50.518 2017](biokanga)    18897244 (AA) Alignment accepted
+[Mar  1 12:41:50.519 2017](biokanga)    19 (EN) Excessive indeterminate (Ns) bases
+[Mar  1 12:41:50.520 2017](biokanga)    524140 (NL) No potential alignment loci
+[Mar  1 12:41:50.521 2017](biokanga)    0 (MH) Mismatch delta (minimum Hamming) criteria not met
+[Mar  1 12:41:50.522 2017](biokanga)    578597 (ML) Aligned to multiloci
+[Mar  1 12:41:50.523 2017](biokanga)    0 (ET) Excessively end trimmed
+[Mar  1 12:41:50.524 2017](biokanga)    0 (OJ) Aligned as orphaned splice junction
+[Mar  1 12:41:50.525 2017](biokanga)    0 (OM) Aligned as orphaned microInDel
+[Mar  1 12:41:50.526 2017](biokanga)    0 (DP) Duplicate PCR
+[Mar  1 12:41:50.527 2017](biokanga)    0 (DS) Duplicate read sequence
+[Mar  1 12:41:50.529 2017](biokanga)    0 (FC) Aligned to filtered target sequence
+[Mar  1 12:41:50.530 2017](biokanga)    0 (PR) Aligned to a priority region
+[Mar  1 12:41:50.531 2017](biokanga)    0 (UI) PE under minimum insert size
+[Mar  1 12:41:50.532 2017](biokanga)    0 (OI) PE over maximum insert size
+[Mar  1 12:41:50.533 2017](biokanga)    0 (UP) PE partner not aligned
+[Mar  1 12:41:50.543 2017](biokanga)    0 (IS) PE partner aligned to inconsistent strand
+[Mar  1 12:41:50.544 2017](biokanga)    0 (IT) PE partner aligned to different target sequence
+[Mar  1 12:41:50.578 2017](biokanga)    0 (NP) PE alignment not accepted
+[Mar  1 12:41:50.580 2017](biokanga)    0 (LC) Alignment violated loci base constraints
+[Mar  1 12:41:50.582 2017](biokanga) Reporting of aligned result set started...
+[Mar  1 12:41:51.080 2017](biokanga) Sorting alignments by ascending chrom.loci
+[Mar  1 12:41:52.925 2017](biokanga) Header written with references to 24 sequences of which 24 have at least 1 alignments
+[Mar  1 12:41:52.927 2017](biokanga) Reported SAM 0 read alignments
+[Mar  1 12:42:40.471 2017](biokanga) Completed reporting SAM 18897244 read alignments
+[Mar  1 12:42:40.500 2017](biokanga) Reporting of aligned result set completed
+[Mar  1 12:42:40.624 2017](biokanga) Exit code: 0 Total processing time:     00:30:59.140 seconds
+
+[Mar  1 12:42:40.642 2017](biokanga) Subprocess align Version 4.3.4 starting
+[Mar  1 12:42:40.644 2017](biokanga) Processing parameters:
+[Mar  1 12:42:40.645 2017](biokanga) Resources: cores: 48 physmem: 252 (GB) virtual mem: Unlimited (cur) Unlimited (max) locked mem: 65536 (cur) 65536 (max) data seg size: Unlimited (cur) Unlimited (max) threads: 2063093 (cur) 2063093 (max) stack size: 8388608 (cur) Unlimited (max)
+        Processing mode is : 'Standard alignment sensitivity'
+        Raw read or paired reads sampling is : every 1
+        Processing in standard basespace mode
+        alignments are to : Either sense '+' or antisense '-' strands
+        No PCR differential amplification artefact reduction
+        trim 5' ends raw reads by : 0
+        trim 3' ends raw reads by : 0
+        after any end trimming reads must be at least this length : 50bp
+        after any end trimming reads must be no longer than this length : 500bp
+        maximum aligner induced substitutions : 5 subs per 100bp of actual read length
+        minimum Hamming edit distance : 1
+        maximum number, precentage of length if read length > 100, of indeterminate 'N's : 2
+        minimum 5' and 3' flank exacts : 0
+        Raw read quality scores are : 'Ignore'
+        output format is : 'SAM Toolset Format, accepted aligned reads only'
+        If number of target sequences no more than this threshold then write all sequence names to SAM header: 10000
+        input PE1 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.forward.fa'
+        process for: 'Paired end reads with orphan partner processing treating orphans as SE'
+        input PE2 raw reads files (1): '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.reverse.fa'
+        Accept as paired if observed insert size is between 100 and 50000
+        Accept as paired if 5' and 3' are are same strand: 'No'
+        Experimental: Output PE insert length distributions for each transcript or contig : 'No'
+        Experimental: Process PEs for spanning of circularised fragments: 'No'
+        Output paired end sequence length distribution to file: 'none specified'
+        input target sequence(s) suffix array file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+        output results file: '/project/itmatlab/aligner_benchmark/tool_results/biokanga/alignment/dataset_human_hg19_RefSeq_t3r1/Aligned.out.sam'
+        Output none-aligned reads to fasta file: 'none specified'
+        Output reads with multiple alignments to fasta file: 'none specified'
+        Output aligner induced substitution distributions to file: 'none specified'
+        Loci base constraints file: 'none specified'
+        Contaminant sequences file: 'none specified'
+        Process multiple alignment reads by: 'slough all reads which match to multiple loci'
+        Offset read start sites when processing site octamer preferencing: -4
+        Allow microInDels of upto this inclusive length: 0
+        Check for chimeric sequences in reads of at least this percentage length: 50
+        Report on individual read sequence chirmeric trimming: no
+        Maximum RNA-seq splice junction separation distance: 0
+        Minimum read coverage at loci before processing for SNP: No SNP processing
+        QValue controlling FDR (Benjamini-Hochberg) SNP prediction : No SNP processing
+        Min percentage non-ref bases at putative SNP loci : No SNP processing
+        Only accept reads which uniquely match a single loci
+        number of threads : 48
+[Mar  1 12:42:40.739 2017](biokanga) Loading suffix array file '/project/itmatlab/aligner_benchmark/tool_results/biokanga/index/ucsc.hg19.sfx'
+[Mar  1 12:42:42.741 2017](biokanga) Genome Assembly Name: 'ucsc.hg19' Descr: 'ucsc.hg19' Title: 'ucsc.hg19' Version: 5
+[Mar  1 12:42:42.743 2017](biokanga) Assembly has blocks: 1, max block size: 15478387200
+[Mar  1 12:42:42.744 2017](biokanga) Loading reads from file...
+[Mar  1 12:42:42.769 2017](biokanga) Loading and parsing reads from 5' PE1 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.forward.fa'
+[Mar  1 12:42:42.771 2017](biokanga) Loading and parsing reads from 3' PE2 raw sequence file '/project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.reverse.fa'
+[Mar  1 12:42:45.769 2017](biokanga) Creating/truncating result files..
+[Mar  1 12:42:45.772 2017](biokanga) Creating/truncating result files completed
+[Mar  1 12:42:45.773 2017](biokanga) Aligning in basespace...
+[Mar  1 12:42:45.774 2017](biokanga) Aligning for normal cored matches...
+[Mar  1 12:42:47.842 2017](biokanga) Genome assembly suffix array loaded
+[Mar  1 12:42:47.844 2017](biokanga) Now aligning with minimum core size of 17bp...
+
+[Mar  1 12:42:52.850 2017](biokanga) Progress: 393216 reads aligned from 4400000 loaded
+[Mar  1 12:43:38.228 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.forward.fa
+[Mar  1 12:43:38.241 2017](biokanga) LoadReads: Total of 010000000 reads parsed and loaded from /project/itmatlab/aligner_benchmark/dataset/human/dataset_t3r1/simulated_reads_HG19t3r1.reverse.fa
+[Mar  1 12:43:38.445 2017](biokanga) 2 raw sequence files were parsed and reads loaded for aligning
+[Mar  1 12:43:52.852 2017](biokanga) Progress: 3907584 reads aligned from 20000000 loaded
+[Mar  1 12:44:52.852 2017](biokanga) Progress: 7499776 reads aligned from 20000000 loaded
+[Mar  1 12:45:52.852 2017](biokanga) Progress: 11083776 reads aligned from 20000000 loaded
+[Mar  1 12:46:52.852 2017](biokanga) Progress: 14655488 reads aligned from 20000000 loaded
+[Mar  1 12:47:52.852 2017](biokanga) Progress: 18227200 reads aligned from 20000000 loaded
+[Mar  1 12:48:26.549 2017](biokanga) Alignment of 20000000 from 20000000 loaded completed
+[Mar  1 12:48:27.544 2017](biokanga) Average length of all reads was: 100 (min: 100, max: 100)
+[Mar  1 12:48:27.545 2017](biokanga) Typical allowed aligner induced substitutions was: 5 (min: 5, max: 5)
+[Mar  1 12:48:27.547 2017](biokanga) Provisionally accepted 15392980 aligned reads (15392980 uniquely, 0 aligning to multiloci) aligning to a total of 15392980 loci
+[Mar  1 12:48:27.548 2017](biokanga) Paired end association and partner alignment processing started..
+[Mar  1 12:48:27.549 2017](biokanga) Generating paired reads index over 10000000 paired reads
+[Mar  1 12:48:31.322 2017](biokanga) Iterating putative paired reads ...
+[Mar  1 12:48:31.324 2017](biokanga) Processed putative 0 pairs, accepted 0
+[Mar  1 12:58:41.839 2017](biokanga) Processed putative 1350054 pairs, accepted 829548
+[Mar  1 13:08:51.959 2017](biokanga) Processed putative 2700108 pairs, accepted 1659109
+[Mar  1 13:19:02.022 2017](biokanga) Processed putative 4050162 pairs, accepted 2488266
+[Mar  1 13:29:12.448 2017](biokanga) Processed putative 5400216 pairs, accepted 3317964
+[Mar  1 13:39:12.596 2017](biokanga) Processed putative 6725269 pairs, accepted 4131615
+[Mar  1 13:49:12.375 2017](biokanga) Processed putative 8050322 pairs, accepted 4945891
+[Mar  1 13:59:12.233 2017](biokanga) Processed putative 9375375 pairs, accepted 5759779
+[Mar  1 14:03:55.243 2017](biokanga) Processed putative 10000000 pairs, accepted 6143037
+[Mar  1 14:03:55.459 2017](biokanga) From 10000000 putative pairs there were 6143037 accepted (42140 from recovered orphans)
+[Mar  1 14:03:55.461 2017](biokanga) 2910407 putative pairs unrecoverable as still orphan partnered
+[Mar  1 14:03:55.462 2017](biokanga) 3857 under length, 14091 over length pairs not accepted
+[Mar  1 14:03:55.464 2017](biokanga) 0 aligned pairs filtered out by chromosome
+[Mar  1 14:03:55.465 2017](biokanga) 946556 putative pairs have neither end uniquely aligned
+[Mar  1 14:03:55.467 2017](biokanga) 3141623 reads accepted as SE aligned
+[Mar  1 14:04:02.838 2017](biokanga) Paired end association and partner alignment processing completed..
+[Mar  1 14:04:03.420 2017](biokanga) From 20000000 source reads there are 15427697 accepted alignments, 7699798 on '+' strand, 7727899 on '-' strand
+[Mar  1 14:04:03.422 2017](biokanga) Of the accepted aligned reads, 12065357 were chimeric
+[Mar  1 14:04:03.423 2017](biokanga) A further 582339 multiloci aligned reads could not accepted as hits because they were unresolvable
+[Mar  1 14:04:03.425 2017](biokanga) A further 0 aligned reads were not accepted as hits because of insufficient Hamming edit distance
+[Mar  1 14:04:03.426 2017](biokanga) A further 0 '+' and 0 '-' strand aligned reads not accepted because of flank trimming (0 were trimmed) requirements
+[Mar  1 14:04:03.427 2017](biokanga) Unable to align 3989964 source reads of which 20 were not aligned as they contained excessive number of indeterminate 'N' bases
+[Mar  1 14:04:03.428 2017](biokanga) Read nonalignment reason summary:
+[Mar  1 14:04:03.430 2017](biokanga)    0 (NA) Not processed for alignment
+[Mar  1 14:04:03.489 2017](biokanga)    15427697 (AA) Alignment accepted
+[Mar  1 14:04:03.496 2017](biokanga)    20 (EN) Excessive indeterminate (Ns) bases
+[Mar  1 14:04:03.505 2017](biokanga)    3989944 (NL) No potential alignment loci
+[Mar  1 14:04:03.506 2017](biokanga)    0 (MH) Mismatch delta (minimum Hamming) criteria not met
+[Mar  1 14:04:03.507 2017](biokanga)    582339 (ML) Aligned to multiloci
+[Mar  1 14:04:03.509 2017](biokanga)    0 (ET) Excessively end trimmed
+[Mar  1 14:04:03.510 2017](biokanga)    0 (OJ) Aligned as orphaned splice junction
+[Mar  1 14:04:03.511 2017](biokanga)    0 (OM) Aligned as orphaned microInDel
+[Mar  1 14:04:03.512 2017](biokanga)    0 (DP) Duplicate PCR
+[Mar  1 14:04:03.514 2017](biokanga)    0 (DS) Duplicate read sequence
+[Mar  1 14:04:03.527 2017](biokanga)    0 (FC) Aligned to filtered target sequence
+[Mar  1 14:04:03.528 2017](biokanga)    0 (PR) Aligned to a priority region
+[Mar  1 14:04:03.530 2017](biokanga)    0 (UI) PE under minimum insert size
+[Mar  1 14:04:03.531 2017](biokanga)    0 (OI) PE over maximum insert size
+[Mar  1 14:04:03.532 2017](biokanga)    0 (UP) PE partner not aligned
+[Mar  1 14:04:03.534 2017](biokanga)    0 (IS) PE partner aligned to inconsistent strand
+[Mar  1 14:04:03.534 2017](biokanga)    0 (IT) PE partner aligned to different target sequence
+[Mar  1 14:04:03.535 2017](biokanga)    0 (NP) PE alignment not accepted
+[Mar  1 14:04:03.537 2017](biokanga)    0 (LC) Alignment violated loci base constraints
+[Mar  1 14:04:03.546 2017](biokanga) Reporting of aligned result set started...
+[Mar  1 14:04:03.986 2017](biokanga) Sorting alignments by ascending chrom.loci
+[Mar  1 14:04:06.524 2017](biokanga) Header written with references to 24 sequences of which 24 have at least 1 alignments
+[Mar  1 14:04:06.526 2017](biokanga) Reported SAM 0 read alignments
+[Mar  1 14:04:48.654 2017](biokanga) Completed reporting SAM 15427697 read alignments
+[Mar  1 14:04:48.690 2017](biokanga) Reporting of aligned result set completed
+[Mar  1 14:04:48.787 2017](biokanga) Exit code: 0 Total processing time:     01:22:08.050 seconds
+
+

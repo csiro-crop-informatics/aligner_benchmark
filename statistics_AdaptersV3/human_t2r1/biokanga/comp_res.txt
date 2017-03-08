@@ -1,30 +1,30 @@
 --------------------------------------
 total_number_of_reads:	20000000
-accuracy over all reads:	4.73%
-accuracy over uniquely aligned reads:	53.31%
-% reads aligned incorrectly:	4.14%
-% reads aligned ambiguously:	78.17%
-% reads unaligned:	12.95%
-% reads aligned:	87.05%
-% of reads with true introns:	13.4585%
+accuracy over all reads:	87.71%
+accuracy over uniquely aligned reads:	99.06%
+% reads aligned incorrectly:	0.83%
+% reads aligned ambiguously:	0.0%
+% reads unaligned:	11.44%
+% reads aligned:	88.56%
+% of reads with true introns:	13.4757%
 --------------------------------------
 total_number_of_bases_of_reads:	2000000000
-accuracy over all bases:	3.4%
-accuracy over uniquely aligned bases:	45.33%
-% bases aligned incorrectly:	4.1%
-% bases aligned ambiguously:	78.17%
-% bases unaligned:	14.3%
-% bases aligned:	85.7%
-% of bases in true insertions:	0.1815%
-% of bases in true deletions:	0.1645%
-insertions FD rate:	58.1399%
+accuracy over all bases:	79.08%
+accuracy over uniquely aligned bases:	97.23%
+% bases aligned incorrectly:	2.25%
+% bases aligned ambiguously:	0.0%
+% bases unaligned:	18.66%
+% bases aligned:	81.34%
+% of bases in true insertions:	0.0711%
+% of bases in true deletions:	0.068%
+insertions FD rate:	0% (no insertions called)
 insertions FN rate:	100.0%
-deletions FD rate:	60.94%
+deletions FD rate:	0% (no deletions called)
 deletions FN rate:	100.0%
-skipping FD rate:	51.95%
+skipping FD rate:	0% (no skipping called)
 skipping FN rate:	100.0%
 --------------------------------------
-junctions FD rate:	64.71%
+junctions FD rate:	0% (no junctions called)
 junctions FN rate:	100.0%
-Junctions Sides (none|left|right|both):	110|0|0|60
-Junctions Sides (none|left|right|both)% of all called:	64.7%|0.0%|0.0%|35.29%
+Junctions Sides (none|left|right|both):	0|0|0|0
+Junctions Sides (none|left|right|both)% of all called:	NaN|NaN|NaN|NaN

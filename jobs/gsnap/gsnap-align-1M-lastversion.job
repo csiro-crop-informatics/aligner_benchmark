@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J gsnap-align-1M-lastversion_job \
+        -e gsnap-align-1M-lastversion_job.%J.err \
+        -o gsnap-align-1M-lastversion_job.%J.out \
+        sh gsnap-align-1M-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM

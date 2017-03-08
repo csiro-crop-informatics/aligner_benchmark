@@ -1,0 +1,12 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+
+# -M 64000 used for the tuning, here change only for the second round
+
+bsub -M 8000 -n $NUM_THREAD_PARAM \
+        -J mapsplice2-align-tune-$3-$4-$5-$6-$7-$8_job \
+        -e mapsplice2-align-tune-$3-$4-$5-$6-$7-$8_job.%J.err \
+        -o mapsplice2-align-tune-$3-$4-$5-$6-$7-$8_job.%J.out \
+        sh mapsplice2-align-tune.sh $NUM_THREAD_PARAM $DATASET_PARAM $3 $4 $5 $6 $7 $8
+
