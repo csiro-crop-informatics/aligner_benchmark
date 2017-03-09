@@ -1,0 +1,9 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J olego-align-tune_job-$3-$4-$5-$6-$7-$8 \
+        -e olego-align-tune_job-$3-$4-$5-$6-$7-$8.%J.err \
+        -o olego-align-tune_job-$3-$4-$5-$6-$7-$8.%J.out \
+        sh olego-align-tune.sh $NUM_THREAD_PARAM $DATASET_PARAM $3 $4 $5 $6 $7 $8
+

@@ -1,0 +1,18 @@
+#!/bin/bash
+# indexing, generating alignments as PE only from the biokanga jobs directory and lastly processing for alignment statistics
+cd /project/itmatlab/aligner_benchmark/jobs/biokanga
+
+#generating index for human - only needs to be done once
+# ./biokanga-index.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
+
+#generating PE alignments for human t1r1
+./biokanga-align-PE-U3.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
+./biokanga-align-PE-U3.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t2r1.sh
+./biokanga-align-PE-U3.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t3r1.sh
+
+#now back to the benchmarking root directory and run the ruby scripts for generating stats on the alignments
+cd /project/itmatlab/aligner_benchmark
+ruby master.rb -v t1r1 t1r1 /project/itmatlab/aligner_benchmark -abiokanga
+ruby master.rb -v t2r1 t2r1 /project/itmatlab/aligner_benchmark -abiokanga
+ruby master.rb -v t3r1 t3r1 /project/itmatlab/aligner_benchmark -abiokanga
+

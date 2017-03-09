@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J star-align-onepass-noannotation_job \
+        -e star-align-onepass-noannotation_job.%J.err \
+        -o star-align-onepass-noannotation_job.%J.out \
+        sh star-align-onepass-noannotation.sh $NUM_THREAD_PARAM $DATASET_PARAM

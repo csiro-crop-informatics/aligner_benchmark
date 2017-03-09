@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J novoalign-index-lastversion_job \
+        -e novoalign-index-lastversion_job.%J.err \
+        -o novoalign-index-lastversion_job.%J.out \
+        sh novoalign-index-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM

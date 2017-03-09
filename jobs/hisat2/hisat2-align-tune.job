@@ -1,0 +1,11 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+
+# -M 64000 was used for the first round
+
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J hisat2-align-tune_job-$3-$4-$5-$6-$7-$8-$9-${10}-${11}-${12}-${13} \
+        -e hisat2-align-tune_job-$3-$4-$5-$6-$7-$8-$9-${10}-${11}-${12}-${13}.%J.err \
+        -o hisat2-align-tune_job-$3-$4-$5-$6-$7-$8-$9-${10}-${11}-${12}-${13}.%J.out \
+        sh hisat2-align-tune.sh $NUM_THREAD_PARAM $DATASET_PARAM $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13}

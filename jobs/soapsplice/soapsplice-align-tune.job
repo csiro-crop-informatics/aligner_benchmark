@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J soapsplice-align-tune_job-$3-$4-$5-$6 \
+        -e soapsplice-align-tune_job-$3-$4-$5-$6.%J.err \
+        -o soapsplice-align-tune_job-$3-$4-$5-$6.%J.out \
+        sh soapsplice-align-tune.sh $NUM_THREAD_PARAM $DATASET_PARAM $3 $4 $5 $6

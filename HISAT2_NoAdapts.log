@@ -1,0 +1,75 @@
+ ste69r@higgins:/project/itmatlab/aligner_benchmark/jobs/hisat2$ time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t1r1.sh
+Time loading forward index: 00:00:12
+Time loading reference: 00:00:02
+Multiseed full-index search: 00:01:55
+10000000 reads; of these:
+  10000000 (100.00%) were paired; of these:
+    146535 (1.47%) aligned concordantly 0 times
+    8315878 (83.16%) aligned concordantly exactly 1 time
+    1537587 (15.38%) aligned concordantly >1 times
+    ----
+    146535 pairs aligned concordantly 0 times; of these:
+      2521 (1.72%) aligned discordantly 1 time
+    ----
+    144014 pairs aligned 0 times concordantly or discordantly; of these:
+      288028 mates make up the pairs; of these:
+        159511 (55.38%) aligned 0 times
+        102808 (35.69%) aligned exactly 1 time
+        25709 (8.93%) aligned >1 times
+99.20% overall alignment rate
+Time searching: 00:01:57
+Overall time: 00:02:09
+
+real    2m9.928s
+user    68m52.663s
+sys     22m18.339s
+ste69r@higgins:/project/itmatlab/aligner_benchmark/jobs/hisat2$ time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t2r1.sh
+Time loading forward index: 00:00:02
+Time loading reference: 00:00:00
+Multiseed full-index search: 00:01:54
+10000000 reads; of these:
+  10000000 (100.00%) were paired; of these:
+    1239863 (12.40%) aligned concordantly 0 times
+    6821834 (68.22%) aligned concordantly exactly 1 time
+    1938303 (19.38%) aligned concordantly >1 times
+    ----
+    1239863 pairs aligned concordantly 0 times; of these:
+      4583 (0.37%) aligned discordantly 1 time
+    ----
+    1235280 pairs aligned 0 times concordantly or discordantly; of these:
+      2470560 mates make up the pairs; of these:
+        1360481 (55.07%) aligned 0 times
+        929281 (37.61%) aligned exactly 1 time
+        180798 (7.32%) aligned >1 times
+93.20% overall alignment rate
+Time searching: 00:01:54
+Overall time: 00:01:56
+
+real    1m56.154s
+user    68m49.838s
+sys     21m20.897s
+ste69r@higgins:/project/itmatlab/aligner_benchmark/jobs/hisat2$ time ./hisat2-align-denovo.sh 48 /project/itmatlab/aligner_benchmark/jobs/settings/dataset_human_hg19_t3r1.sh
+Time loading forward index: 00:00:02
+Time loading reference: 00:00:01
+Multiseed full-index search: 00:01:51
+10000000 reads; of these:
+  10000000 (100.00%) were paired; of these:
+    9173429 (91.73%) aligned concordantly 0 times
+    606884 (6.07%) aligned concordantly exactly 1 time
+    219687 (2.20%) aligned concordantly >1 times
+    ----
+    9173429 pairs aligned concordantly 0 times; of these:
+      2866 (0.03%) aligned discordantly 1 time
+    ----
+    9170563 pairs aligned 0 times concordantly or discordantly; of these:
+      18341126 mates make up the pairs; of these:
+        15365746 (83.78%) aligned 0 times
+        2489084 (13.57%) aligned exactly 1 time
+        486296 (2.65%) aligned >1 times
+23.17% overall alignment rate
+Time searching: 00:01:52
+Overall time: 00:01:54
+
+real    1m54.199s
+user    68m40.715s
+sys     19m24.446s

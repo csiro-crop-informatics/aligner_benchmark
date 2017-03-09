@@ -1,46 +1,46 @@
 -------------------------------------- Multi-Mappers!
 total_number_of_reads:	20000000
-accuracy over all reads:	22.94%
+accuracy over all reads:	22.93%
 accuracy over uniquely aligned reads:	98.96%
 % reads aligned incorrectly:	0.23%
 % reads aligned ambiguously:	0(0.92)%
-% reads unaligned:	76.81%
-% reads aligned:	23.189999999999998%
+% reads unaligned:	76.82%
+% reads aligned:	23.180000000000007%
 % of reads with true introns:	13.4585%
 --------------------------------------
 total_number_of_bases_of_reads:	2000000000
-accuracy over all bases:	22.71%
+accuracy over all bases:	22.7%
 accuracy over uniquely aligned bases:	98.89%
 % bases aligned incorrectly:	0.25%
 % bases aligned ambiguously:	0(0.92)%
-% bases unaligned:	77.03%
-% bases aligned:	22.97%
+% bases unaligned:	77.04%
+% bases aligned:	22.959999999999994%
 % of bases in true insertions:	0.1815%
 % of bases in true deletions:	0.1645%
-insertions FD rate:	4.2799%
+insertions FD rate:	4.3%
 insertions FN rate:	99.03%
-deletions FD rate:	3.6699%
-deletions FN rate:	99.05%
-skipping FD rate:	25.28%
-skipping FN rate:	95.85%
+deletions FD rate:	3.69%
+deletions FN rate:	99.06%
+skipping FD rate:	26.17%
+skipping FN rate:	96.05%
 --------------------------------------
-junctions FD rate:	8.8799%
-junctions FN rate:	94.98%
-Junctions Sides (none|left|right|both):	13877|227|235|147167
-Junctions Sides (none|left|right|both)% of all called:	8.59%|0.1399%|0.1399%|91.12%
+junctions FD rate:	8.9999%
+junctions FN rate:	95.12%
+Junctions Sides (none|left|right|both):	13704|218|228|143073
+Junctions Sides (none|left|right|both)% of all called:	8.7099%|0.13%|0.1399%|91.0%
 -------------------------------------- as pair
 total_number_of_reads:	20000000
-accuracy over all reads pair:	23.33%
+accuracy over all reads pair:	23.31%
 accuracy over uniquely aligned reads:	98.99%
 % reads aligned incorrectly:	0.23%
 % reads aligned ambiguously:	0(0.92)%
-% reads unaligned:	76.43%
-% reads aligned:	23.569999999999993%
+% reads unaligned:	76.44%
+% reads aligned:	23.560000000000002%
 -------------------------------------- as pair
 total_number_of_bases_of_reads:	2000000000
-accuracy over all bases:	23.1%
+accuracy over all bases:	23.08%
 accuracy over uniquely aligned bases:	98.93%
 % bases aligned incorrectly:	0.24%
 % bases aligned ambiguously:	0(0.92)%
-% bases unaligned:	76.64%
-% bases aligned:	23.36%
+% bases unaligned:	76.66%
+% bases aligned:	23.340000000000003%

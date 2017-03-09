@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J tophat2-align-1M-lastversion_job \
+        -e tophat2-align-1M-lastversion_job.%J.err \
+        -o tophat2-align-1M-lastversion_job.%J.out \
+        sh tophat2-align-1M-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM

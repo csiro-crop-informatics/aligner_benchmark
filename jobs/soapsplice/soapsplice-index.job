@@ -1,0 +1,12 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+
+# -M was 64000 for the first round
+
+bsub -M 2000 -n $NUM_THREAD_PARAM \
+        -J soapsplice-index_job \
+        -e soapsplice-index_job.%J.err \
+        -o soapsplice-index_job.%J.out \
+        sh soapsplice-index.sh $NUM_THREAD_PARAM $DATASET_PARAM
+

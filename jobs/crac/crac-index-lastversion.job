@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 64000 -n $NUM_THREAD_PARAM \
+        -J crac-index-lastversion_job \
+        -e crac-index-lastversion_job.%J.err \
+        -o crac-index-lastversion_job.%J.out \
+        sh crac-index-lastversion.sh $NUM_THREAD_PARAM $DATASET_PARAM

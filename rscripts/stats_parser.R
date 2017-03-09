@@ -27,7 +27,7 @@ new_vars_single <- c("total_reads",
               "insertion_fd",
               "insertion_fn",
               "deletion_fd",
-              "delection_fn",
+              "deletion_fn",
               "skipping_fd",
               "skipping_fn",
               "junction_fd",
@@ -82,14 +82,12 @@ parse_file <- function(filename, multi = FALSE, debug = FALSE) {
     separate(file, c("query", "target", "tool", "type"), "\\/", remove = FALSE) %>% 
     mutate(type = ifelse(grepl("multi", type), "multi", "single")) %>% 
     mutate(perc = ifelse(grepl("%", value), TRUE, FALSE),
-           value_dbl = as.numeric(sub("%", "", value)))
+           value_dbl = ifelse(grepl("no.*called", value), NA,
+                                 as.numeric(sub("([^%\\(]*).*", "\\1", value))))
 }
 
 files <- c(list.files("statistics_AdaptersV3", full.names = TRUE, recursive = TRUE),
            list.files("statistics_NoAdapters", full.names = TRUE, recursive = TRUE))
-
-# test <- parse_file("statistics_AdaptersV3/human_t1r1/biokanga/comp_res.txt")
-# temp <- parse_file(files[4])
 
 dat_parsed <- files %>% 
   map(parse_file) %>% 
@@ -97,29 +95,3 @@ dat_parsed <- files %>%
 
 write_csv(dat_parsed, "statistics/alignment_statistics.csv")
 
-ggplot(dat_parsed %>% filter(var == "total_read_accuracy"), aes(tool, value_dbl)) +
-  geom_point(aes(colour = target)) + geom_line(aes(group = paste(type, target))) +
-  facet_grid(paired~query)
-
-#biokanga t2/3 multi pairs are the same, check other stats
-dat_parsed %>% 
-  filter(target != "human_t1r1",
-         tool == "biokanga",
-         !grepl("total", var),
-         type == "multi",
-         paired == "pairs") %>% 
-  arrange(var) %>% 
-  print(n = nrow(.))
-
-dat_parsed %>% 
-  filter(!var %in% c("total_reads", "total_bases")) %>% 
-  group_by(value_dbl) %>% 
-  mutate(value_count = n()) %>% 
-  filter(value_count > 1) %>% 
-  group_by(value_dbl, value_count) %>% 
-  filter(value_count < 5) %>% 
-  summarise(file_combn = paste(file, collapse = ",")) %>% 
-  group_by(file_combn) %>% 
-  count()
-  arrange(value_count,value_dbl, var) %>% 
-  print(n = nrow(.))

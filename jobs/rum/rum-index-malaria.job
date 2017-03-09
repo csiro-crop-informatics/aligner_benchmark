@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J rum-index-malaria_job \
+        -e rum-index-malaria_job.%J.err \
+        -o rum-index-malaria_job.%J.out \
+        sh rum-index-malaria.sh $NUM_THREAD_PARAM $DATASET_PARAM

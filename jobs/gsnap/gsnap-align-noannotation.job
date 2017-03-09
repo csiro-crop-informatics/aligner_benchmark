@@ -1,0 +1,8 @@
+#!/bin/bash
+NUM_THREAD_PARAM=$1
+DATASET_PARAM=$2
+bsub -M 200000 -n $NUM_THREAD_PARAM \
+        -J gsnap-align-noannotation_job \
+        -e gsnap-align-noannotation_job.%J.err \
+        -o gsnap-align-noannotation_job.%J.out \
+        sh gsnap-align-noannotation.sh $NUM_THREAD_PARAM $DATASET_PARAM
