@@ -51,6 +51,7 @@ ggplot(stats_prop, aes(target, value_dbl)) +
   scale_color_brewer(palette = "Dark2") +
   # scale_color_viridis(option = "C", discrete = TRUE) +
   facet_wrap(~paste(var), scales = "free") +
+  scale_x_discrete(expand = c(0.05, 0.05)) +
   labs(title = "Read alignment statistics of biokanga and HiSAT2",
        subtitle = "Alignments of simulated reads",
        x = "Target",
